@@ -1,0 +1,6 @@
+# Edit /etc/ufw/before.rules to add NAT rules before the *filter section:
+
+*nat
+:POSTROUTING ACCEPT [0:0]
+-A POSTROUTING -s 172.31.0.0/8 -o ens5 -j MASQUERADE
+COMMIT
